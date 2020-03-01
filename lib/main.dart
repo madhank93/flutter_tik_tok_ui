@@ -14,35 +14,58 @@ class MyApp extends StatelessWidget {
 }
 
 class TikTok extends StatelessWidget {
+
+  Widget get topSection {
+    return Container(
+      height: 100,
+      color: Colors.yellow,
+    );
+  }
+
+  Widget get videoDescription {
+    return Expanded(child: Container(
+      color: Colors.green,
+    ));
+  }
+
+  Widget get actionToolbar {
+    return  Container(
+      width: 100,
+      color: Colors.redAccent,
+    );
+  }
+
+  Widget get middleSection {
+    return Expanded (
+      child: Row(
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: <Widget>[
+          videoDescription,
+          actionToolbar
+        ],
+      ),
+    );
+  }
+
+  Widget get bottomSection {
+    return Container(
+      height: 80,
+      color: Colors.blue,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: <Widget>[
           // Top section
-          Container(
-            height: 100,
-            color: Colors.yellow,
-          ),
+          topSection,
           // Middle section
-          Expanded(
-            child: Row(
-              children: <Widget>[
-                Expanded(child: Container(
-                  color: Colors.green,
-                )),
-                Container(
-                  width: 100,
-                  color: Colors.redAccent,
-                )
-              ],
-            ),
-          ),
+          middleSection,
           // Bottom section
-          Container(
-            height: 80,
-            color: Colors.blue,
-          ),
+          bottomSection,
         ],
       ),
     );
